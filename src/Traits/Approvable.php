@@ -38,10 +38,10 @@ trait Approvable
 {
     private Collection|null $_approvalSteps = null;
 
-
     protected static function boot(): void
     {
         parent::boot();
+
         static::created(static function ($model) {
             $model->approvalStatus()->create([
                 'steps' => $model->approvalFlowSteps()->map(function ($item) {

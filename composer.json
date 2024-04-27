@@ -17,6 +17,11 @@
             "RingleSoft\\LaravelProcessApproval\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "RingleSoft\\LaravelProcessApproval\\Tests\\": "tests"
+        }
+    },
     "authors": [
         {
             "name": "David Ringle",
@@ -32,6 +37,9 @@
     }
     ,
     "require-dev": {
+        "orchestra/testbench": "^6.23 | ^7.0 | ^8.0 | ^9.0",
+        "pestphp/pest": "^1.22|^2.0",
+        "phpunit/phpunit": "^9.4|^10.0",
         "roave/security-advisories": "dev-latest",
         "illuminate/routing": "^10.24|^11.0"
     },
@@ -54,5 +62,10 @@
     },
     "version": "1.0.7",
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
