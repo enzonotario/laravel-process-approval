@@ -160,6 +160,7 @@ trait Approvable
      */
     public function isApprovalCompleted(): bool
     {
+        $this->approvalStatus->refresh();
         $registeredSteps = collect($this->approvalStatus->steps ?? []);
         foreach ($registeredSteps as $item) {
             if ($item['process_approval_action'] === null || $item['process_approval_id'] === null) {
