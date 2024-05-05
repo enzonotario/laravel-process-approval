@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -240,7 +241,7 @@ trait Approvable
             if ($step['process_approval_id'] === null) {
                 return ProcessApprovalFlowStep::query()->find($previous_id);
             }
-            $previous_id = $step->id;
+            $previous_id = Arr::get($step, 'id');
         }
         return null;
     }
